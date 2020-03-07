@@ -12,6 +12,12 @@
     <artifactId>cloud-provider-payment8001</artifactId>
 
     <dependencies>
+        <!--公共服务模块依赖-->
+        <dependency>
+            <groupId>com.jiguiquan.springcloud</groupId>
+            <artifactId>cloud-api-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!--springboot项目web和actuator最好一起走-->
         <dependency>

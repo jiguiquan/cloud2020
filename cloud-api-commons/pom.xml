@@ -9,26 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-consumer-order80</artifactId>
+    <artifactId>cloud-api-commons</artifactId>
 
     <dependencies>
-        <!--公共服务模块依赖-->
-        <dependency>
-            <groupId>com.jiguiquan.springcloud</groupId>
-            <artifactId>cloud-api-commons</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <!--springboot项目web和actuator最好一起走-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
         <!--热部署devtools-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -44,11 +27,13 @@
             <optional>true</optional>
         </dependency>
 
-        <!--测试-->
+        <!--hutool是现在在国内比较流行的工具包，时间日期格式，时分秒之类的处理-->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.1.0</version>
         </dependency>
     </dependencies>
+
 
 </project>

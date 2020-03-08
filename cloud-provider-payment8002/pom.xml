@@ -8,8 +8,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <!-- 因为已经继承了父工程的GV，这里只需要写自己的A即可 -->
-    <artifactId>cloud-provider-payment8001</artifactId>
+
+    <artifactId>cloud-provider-payment8002</artifactId>
 
     <dependencies>
         <!--eureka-client-->

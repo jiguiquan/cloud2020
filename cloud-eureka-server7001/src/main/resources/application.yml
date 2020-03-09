@@ -10,3 +10,7 @@ eureka:
     service-url:
       #      defaultZone: http://eureka7001.com:7001/eureka/ # 不搭建集群 单机 指向自己
       defaultZone: http://eureka7002.com:7002/eureka/ # 搭建集群 集群是指向其他eureka
+  server:
+    #关闭Eureka的自我保护机制，保证不可用服务被立即剔除
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 2000

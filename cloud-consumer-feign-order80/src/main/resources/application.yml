@@ -11,3 +11,15 @@ eureka:
     service-url:
       #      defaultZone: http://localhost:7001/eureka # 单机版 入驻的EurekaServer地址
       defaultZone: http://eureka7001.com:7001/eureka, http://eureka7002.com:7002/eureka  #集群版
+
+#设置OpenFeign客户端超时时间（OpenFeign默认支持Ribbon）
+ribbon:
+  #指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接的时间
+  ConnectTimeout: 5000
+  #指的是建立连接后，从服务器读取到可用资源所用的时间
+  ReadTimeout: 5000
+
+logging:
+  level:
+    #以debug的形式，打印对应的PaymentFeignService的FULL级别的全日志，可以列多个
+    com.jiguiquan.springcloud.service.PaymentFeignService: debug

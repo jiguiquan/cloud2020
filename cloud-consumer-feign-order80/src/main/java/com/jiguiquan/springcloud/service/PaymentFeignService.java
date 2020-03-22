@@ -18,4 +18,7 @@ public interface PaymentFeignService {
     //与PaymentController中的API接口一模一样即可
     @GetMapping(value = "/payment/get/{id}")
     CommonResult<Payment> getPaymentById(@PathVariable("id") Long id);
+
+    @GetMapping(value = "/payment/feign/timeout")
+    String paymentFeignTimeout();
 }

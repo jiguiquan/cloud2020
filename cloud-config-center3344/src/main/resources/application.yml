@@ -7,7 +7,7 @@ spring:
     config:
       server:
         git:
-          uri: git@github.com:jiguiquan/springcloud-config.git
+          uri: git@gitee.com:jiguiquan/springcloud-config.git
           search-paths:
             - springcloud-config
 #          username: *********

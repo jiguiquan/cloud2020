@@ -1,0 +1,17 @@
+server:
+  port: 3377
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        namespace: 156b63d1-9ad3-4e42-bdc5-072549704f30
+        group: DEV_GROUP
+
+# ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
+# 这就是实际拼接好的配置文件的名称 "nacos-config-client-dev.yaml"

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jiguiquan.springcloud.alibaba.dao.StorageMapper" >
+  <resultMap id="BaseResultMap" type="com.jiguiquan.springcloud.alibaba.domain.Storage" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="product_id" property="productId" jdbcType="BIGINT" />
+    <result column="total" property="total" jdbcType="INTEGER" />
+    <result column="used" property="used" jdbcType="INTEGER" />
+    <result column="residue" property="residue" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, product_id, total, used, residue
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_storage
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from t_storage
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jiguiquan.springcloud.alibaba.domain.Storage" >
+    insert into t_storage (id, product_id, total, 
+      used, residue)
+    values (#{id,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT}, #{total,jdbcType=INTEGER}, 
+      #{used,jdbcType=INTEGER}, #{residue,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jiguiquan.springcloud.alibaba.domain.Storage" >
+    insert into t_storage
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="total != null" >
+        total,
+      </if>
+      <if test="used != null" >
+        used,
+      </if>
+      <if test="residue != null" >
+        residue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="total != null" >
+        #{total,jdbcType=INTEGER},
+      </if>
+      <if test="used != null" >
+        #{used,jdbcType=INTEGER},
+      </if>
+      <if test="residue != null" >
+        #{residue,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jiguiquan.springcloud.alibaba.domain.Storage" >
+    update t_storage
+    <set >
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=BIGINT},
+      </if>
+      <if test="total != null" >
+        total = #{total,jdbcType=INTEGER},
+      </if>
+      <if test="used != null" >
+        used = #{used,jdbcType=INTEGER},
+      </if>
+      <if test="residue != null" >
+        residue = #{residue,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jiguiquan.springcloud.alibaba.domain.Storage" >
+    update t_storage
+    set product_id = #{productId,jdbcType=BIGINT},
+      total = #{total,jdbcType=INTEGER},
+      used = #{used,jdbcType=INTEGER},
+      residue = #{residue,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

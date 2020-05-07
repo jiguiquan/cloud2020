@@ -90,4 +90,10 @@
       residue = #{residue,jdbcType=DECIMAL}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <update id="decrease">
+    update t_account
+    set used = used + #{money,jdbcType=DECIMAL}, residue = residue - #{money,jdbcType=DECIMAL}
+    where user_id = #{userId,jdbcType=BIGINT}
+  </update>
 </mapper>

@@ -90,4 +90,10 @@
       residue = #{residue,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <update id="decrease">
+    update t_storage
+    set used = used + #{count,jdbcType=INTEGER}, residue = residue - #{count,jdbcType=INTEGER}
+    where product_id = #{productId,jdbcType=BIGINT}
+  </update>
 </mapper>

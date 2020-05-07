@@ -5,6 +5,7 @@ import com.jiguiquan.springcloud.alibaba.domain.Order;
 import com.jiguiquan.springcloud.alibaba.service.AccountService;
 import com.jiguiquan.springcloud.alibaba.service.OrderService;
 import com.jiguiquan.springcloud.alibaba.service.StorageService;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -24,9 +25,12 @@ public class OrderServiceImpl implements OrderService {
     @Resource
     private AccountService accountService;
 
+    //发现的所有Exception，通通回滚
     @Override
+    @GlobalTransactional(name = "jgq-create-order", rollbackFor = Exception.class)
     public Order create(Order order) {
         log.info("------>开始新建订单");
+        order.setStatus(0);
         orderMapper.insert(order);
         System.out.println("此处已获得主键为："+order.getId());
 
